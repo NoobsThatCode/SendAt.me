@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <html>
 <head>
     <meta charset="UTF-8">
-    <title> SendAt.me | Sign Up </title>
+    <title> SendAt.me | Log in </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -44,8 +44,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <ul class="nav navbar-nav navbar-left">
 
             <li> <a href="../index.php"> Home </a> </li>
-            <li class="active"> <a href="../signup"> Sign Up </a> </li>
-            <li> <a href="../login"> Login </a> </li>
+            <li> <a href="../signup"> Sign Up </a> </li>
+            <li class="active"> <a href="../login"> Login </a> </li>
 
         </ul>
 
@@ -57,30 +57,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <?php
 
-    $url = "http://localhost".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    if(strpos($url, 'success') != FALSE) {
-        echo "You've successfully signed up! You can now login! <br>";
-    }
+        $url = "http://localhost".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        if(strpos($url, 'success') != FALSE) {
+            echo "You've successfully logged in! <br>";
+        } elseif (strpos($url, 'nodata')) {
+            echo "Please check if you have the correct credentials when logging in! Please try again <br>";
+        } elseif (strpos($url, 'nouser')) {
+            echo "There's no such username! <br>";
+        } elseif (strpos($url, 'signupsuc')) {
+            echo "You have signed up! Please login <br>";
+        }
 
     ?>
 
     <br><br>
 
-    <h3> Sign up now! </h3>
-
-    <br><br>
-
-    <form method="POST" action="../inc/signup.inc.php">
+    <form method="POST" action="../inc/signin.inc.php">
 
         <input type="text" name="username" class="input-lg" placeholder="Your Username"><br><br>
         <input type="password" name="password" class="input-lg" placeholder="Your Password"><br><br>
-        <button type="submit" class="btn-default"> Sign Up </button>
+        <button type="submit" class="btn-default"> Sign in </button>
 
     </form>
-
-    <br><br>
-
-    <h3> Have an account? <a href="../login/"> Login here </a> ! </h3>
 
 </center>
 

@@ -66,7 +66,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             echo "There's no such username! <br>";
         } elseif (strpos($url, 'signupsuc')) {
             echo "You have signed up! Please login <br>";
-        }
+        } elseif (strpos($url, ''))
 
     ?>
 

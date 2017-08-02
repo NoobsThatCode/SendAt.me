@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 /**
  * Created by PhpStorm.
  * User: RTG
@@ -19,7 +21,8 @@ if (empty($username)) {
     if (!$res->fetchArray(1)) {
         header("Location: ../signup?nouser");
     } else {
-        header("Location: ../login?success");
+        header("Location: ../login/loggedin/?success");
+        $_SESSION['username'] = $username;
     }
 
 }
